@@ -1,0 +1,114 @@
+  @import "tailwindcss";
+
+  /* Tailwind base overrides */
+  @layer base {
+    body {
+      @apply bg-slate-400;
+    }
+  }
+
+  :root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Reset links */
+  a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+  }
+
+  a:hover {
+    color: #535bf2;
+  }
+
+  /* Body layout */
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: inherit;
+    color: rgb(6, 0, 0);
+    background-color: #242424;
+  }
+
+  /* Root container */
+  #root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Buttons */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 10px 1.2em; /* same vertical padding as link */
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #003cff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  /* Optional: set fixed height instead of padding for exact matching */
+  /* height: 40px; */
+}
+
+  button:hover {
+    border-color: #0d0101;
+  }
+
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+
+  /* API text override */
+  .api-text {
+    color: #ffffff !important;
+  }
+.action-btn {
+  background-color: #b91c1c; /* red */
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover */
+.action-btn:hover {
+  background-color: #991b1b;
+}
+
+/* Edit button (dark gray) */
+.action-btn.edit {
+  background-color: #374151;
+}
+
+.action-btn.edit:hover {
+  background-color: #1f2933;
+}
+.action-btn {
+  width: 130px; /* set same width for all action buttons */
+}
+
