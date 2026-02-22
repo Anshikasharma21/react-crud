@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Product from "/components/products";
+import Product from "../components/products"; // <-- fixed path
 import { Link } from "react-router-dom";
 import { VITE_BACKEND_URL } from "../App";
 
@@ -42,12 +42,16 @@ const HomePage = () => {
   return (
     <div className="p-5 max-w-6xl mx-auto">
       {/* Header */}
-    <div className="mb-8 flex justify-between items-center">
-    <h1 className="text-2xl font-bold !text-white">Products</h1>
-      <Link to="/create" className=" !bg-[#2563eb] hover:!bg-[#1d4ed8] !text-white !no-underline px-6 py-3 rounded-lg font-semibold shadow-md transition-colors duration-200">
-        Create a Product
-      </Link>
-    </div>
+      <div className="mb-8 flex justify-between items-center">
+        <h1 className="text-2xl font-bold !text-white">Products</h1>
+        <Link
+          to="/create"
+          className="!bg-[#2563eb] hover:!bg-[#1d4ed8] !text-white !no-underline px-6 py-3 rounded-lg font-semibold shadow-md transition-colors duration-200"
+        >
+          Create a Product
+        </Link>
+      </div>
+
       {/* Products Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-8">
         {isLoading ? (
@@ -79,17 +83,19 @@ const HomePage = () => {
               const pageNum = i + 1;
               const isActive = currentPage === pageNum;
               
-              // Show first 2, last 2, and current ±1
-              if (pageNum <= 2 || pageNum >= totalPages - 1 || 
-                  (pageNum >= currentPage - 1 && pageNum <= currentPage + 1)) {
+              if (
+                pageNum <= 2 ||
+                pageNum >= totalPages - 1 ||
+                (pageNum >= currentPage - 1 && pageNum <= currentPage + 1)
+              ) {
                 return (
                   <button
                     key={pageNum}
                     onClick={() => paginate(pageNum)}
                     className={`w-12 h-12 rounded-lg font-semibold flex items-center justify-center transition-all ${
                       isActive
-                        ? 'bg-black text-white shadow-md scale-105'
-                        : 'text-gray-700 hover:bg-gray-100 hover:text-black hover:shadow-sm border border-gray-200'
+                        ? "bg-black text-white shadow-md scale-105"
+                        : "text-gray-700 hover:bg-gray-100 hover:text-black hover:shadow-sm border border-gray-200"
                     }`}
                   >
                     {pageNum}
@@ -98,8 +104,6 @@ const HomePage = () => {
               }
               return null;
             })}
-            
-            {/* Dots for middle pages */}
             {totalPages > 5 && currentPage < totalPages - 2 && (
               <span className="w-12 h-12 flex items-center justify-center text-gray-400 text-sm font-medium">...</span>
             )}
@@ -120,4 +124,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-  
