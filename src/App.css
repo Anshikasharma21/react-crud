@@ -391,3 +391,46 @@ input,textarea,select{font-family:inherit}
   .form-card{padding:1.4rem}
   .form-card__title,.form-card h2{font-size:1.1rem}
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.pagination__btn {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.pagination__btn:hover:not(:disabled) {
+  background: #3085d6;
+  color: #fff;
+  border-color: #3085d6;
+}
+
+.pagination__btn--active {
+  background: #3085d6;
+  color: #fff;
+  border-color: #3085d6;
+  font-weight: bold;
+}
+
+.pagination__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination__info {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #888;
+}
