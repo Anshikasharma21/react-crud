@@ -2,10 +2,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
-import { VITE_BACKEND_URL } from "../App";
 
 /* eslint-disable react/prop-types */
 const Product = ({ product, getProducts }) => {
+  const API_URL = import.meta.env.VITE_BACKEND_URL;
+
   const deleteProduct = async (id) => {
     const result = await Swal.fire({
       title: "Do you really want to delete the product?",
@@ -17,8 +18,8 @@ const Product = ({ product, getProducts }) => {
     });
     if (result.isConfirmed) {
       try {
-        await axios.delete(`${VITE_BACKEND_URL}/api/products/${id}`);
-        toast.success("Delete a product successfully");
+        await axios.delete(`${API_URL}/api/products/${id}`);
+        toast.success("Deleted successfully");
         getProducts();
       } catch (error) {
         toast.error(error.message);
@@ -38,15 +39,8 @@ const Product = ({ product, getProducts }) => {
           <span className="product-card__price">${product.price}</span>
         </div>
         <div className="product-card__actions">
-          <Link to={`/edit/${product._id}`} className="btn-edit">
-            Edit
-          </Link>
-          <button
-            onClick={() => deleteProduct(product._id)}
-            className="btn-delete"
-          >
-            Delete
-          </button>
+          <Link to={`/edit/${product._id}`} className="btn-edit">Edit</Link>
+          <button onClick={() => deleteProduct(product._id)} className="btn-delete">Delete</button>
         </div>
       </div>
     </div>
